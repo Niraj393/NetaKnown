@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Social Causes | NetaKnown Donations</title>
+    <meta name="description" content="Support various social causes in Nepal through NetaKnown's transparent donation platform. Contribute to child welfare, elderly care, disability support, and more.">
+    <meta name="keywords" content="Nepal donations, social causes, child welfare Nepal, old age home, disability support, charity Nepal">
+    <meta name="author" content="NetaKnown">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.netaknown.com/donation.html">
+    <meta property="og:title" content="Support Social Causes - NetaKnown Donations">
+    <meta property="og:description" content="Transparent donations for child welfare, elderly care, disability support, and social causes in Nepal.">
+    <meta property="og:image" content="https://www.netaknown.com/social-preview-donation.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="NetaKnown">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@netaknown">
+    <meta name="twitter:title" content="NetaKnown Donations - Support Social Causes">
+    <meta name="twitter:description" content="Make transparent donations to verified social causes in Nepal.">
+    <meta name="twitter:image" content="https://www.netaknown.com/social-preview-donation.jpg">
+    
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://www.netaknown.com/donation.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External JS (deferred) -->
+    <script src="script.js" defer></script>
+    
+    <!-- Payment Integration -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <style>
+        /* Donation Page Specific Styles */
+        .donation-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .donation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .donation-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: white;
+        }
+        
+        .donation-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .donation-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .donation-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .cause-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .cause-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cause-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .cause-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .cause-card:hover .cause-image img {
+            transform: scale(1.1);
+        }
+        
+        .cause-content {
+            padding: 2rem;
+        }
+        
+        .cause-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .cause-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .cause-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cause-progress {
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .cause-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .donation-form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .donation-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .amount-option {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .amount-option:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+        
+        .amount-option.selected {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .amount-custom {
+            grid-column: span 2;
+        }
+        
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .payment-option {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .payment-option:hover {
+            border-color: #667eea;
+        }
+        
+        .payment-option.selected {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+        
+        .payment-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .form-actions {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .donation-disclaimer {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .donation-disclaimer h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonials {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: #2d3748;
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .impact-stories {
+            margin-top: 4rem;
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .impact-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .impact-stats {
+            text-align: center;
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+        
+        .impact-label {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .donation-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .donation-form-section {
+                padding: 2rem;
+            }
+            
+            .form-title {
+                font-size: 2rem;
+            }
+            
+            .impact-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .cause-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .donation-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .donation-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .causes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-form-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="NetaKnown Logo">
+                <span>NetaKnown</span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="politicians.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Politicians</span>
+                </a>
+                <a href="donation.html" class="nav-link active">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Donations</span>
+                </a>
+                <a href="/contact" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <polyline points="22,7 12,14 2,7"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-login">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                        <polyline points="10 17 15 12 10 7"/>
+                        <line x1="15" y1="12" x2="3" y2="12"/>
+                    </svg>
+                    <span>Login</span>
+                </button>
+                <button class="btn btn-primary btn-submit">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    <span>Submit</span>
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Donation Section -->
+    <section class="donation-section">
+        <div class="container donation-container">
+            <!-- Hero Section -->
+            <div class="donation-hero">
+                <h1>Support Social Causes in Nepal</h1>
+                <p>Join us in making a difference. Your donations support child welfare, elderly care, disability support, and other vital social causes across Nepal. Every contribution matters.</p>
+                
+                <div class="donation-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Children Supported</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15,00,000+</span>
+                        <span class="stat-label">NPR Raised</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Elderly Helped</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Transparent</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Causes Grid -->
+            <div class="section-header" style="color: white;">
+                <span class="section-badge">Causes You Can Support</span>
+                <h2 class="section-title">Choose a Cause That Matters to You</h2>
+                <p class="section-subtitle">Every donation makes a real impact in someone's life.</p>
+            </div>
+            
+            <div class="causes-grid">
+                <!-- Child Welfare -->
+                <div class="cause-card" data-cause="child-welfare">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Child Welfare">
+                    </div>
+                    <div class="cause-content">
+                        <span class="cause-category">Child Welfare</span>
+                        <h3 class="cause-title">Education for Underprivileged Children</h3>
+                        <p class="cause-description">Provide quality education, school supplies, and nutritional support to children from low-income families across Nepal.</p>
+                        
+                        <div class="cause-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span>₹7,50,000 raised</span>
+                                <span>75% of goal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-actions">
+                            <button class="btn btn-primary donate-btn" data-cause="child-welfare" data-amount="1000">Donate ₹1000</button>
+                            <button class="btn btn-outline learn-more-btn" data-cause="child-welfare">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Old Age Home -->
+                <div class="cause-card" data-cause="old-age-home">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Old Age Home">
+                    </div>
+                    <div class="cause-content">
+                        <span class="cause-category">Elderly Care</span>
+                        <h3 class="cause-title">Support for Senior Citizens</h3>
+                        <p class="cause-description">Provide healthcare, nutritious meals, and social activities for elderly citizens in old age homes across Nepal.</p>
+                        
+                        <div class="cause-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span>₹6,00,000 raised</span>
+                                <span>60% of goal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-actions">
+                            <button class="btn btn-primary donate-btn" data-cause="old-age-home" data-amount="1500">Donate ₹1500</button>
+                            <button class="btn btn-outline learn-more-btn" data-cause="old-age-home">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Disability Support -->
+                <div class="cause-card" data-cause="disability-support">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Disability Support">
+                    </div>
+                    <div class="cause-content">
+                        <span class="cause-category">Disability Support</span>
+                        <h3 class="cause-title">Empowering People with Disabilities</h3>
+                        <p class="cause-description">Provide mobility aids, vocational training, and accessibility improvements for people with disabilities in Nepal.</p>
+                        
+                        <div class="cause-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span>₹4,50,000 raised</span>
+                                <span>45% of goal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cause-actions">
+                            <button class="btn btn-primary donate-btn" data-cause="disability-support" data-amount="2000">Donate ₹2000</button>
+                            <button class="btn btn-outline learn-more-btn" data-cause="disability-support">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donation Form -->
+            <div class="donation-form-section">
+                <h2 class="form-title">Make a Donation</h2>
+                
+                <form id="donationForm" class="donation-form">
+                    <!-- Donor Information -->
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="causeSelect">Select Cause *</label>
+                        <select id="causeSelect" class="form-select" required>
+                            <option value="">Choose a cause...</option>
+                            <option value="child-welfare">Child Welfare & Education</option>
+                            <option value="old-age-home">Old Age Home Support</option>
+                            <option value="disability-support">Disability Support</option>
+                            <option value="healthcare">Healthcare Access</option>
+                            <option value="women-empowerment">Women Empowerment</option>
+                            <option value="disaster-relief">Disaster Relief</option>
+                            <option value="general">General Fund</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Donation Amount -->
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="form-label">Donation Amount (NPR) *</label>
+                        <div class="donation-amounts">
+                            <div class="amount-option" data-amount="500">₹500</div>
+                            <div class="amount-option" data-amount="1000">₹1000</div>
+                            <div class="amount-option" data-amount="2000">₹2000</div>
+                            <div class="amount-option" data-amount="5000">₹5000</div>
+                            <div class="amount-option amount-custom" data-amount="custom">
+                                <input type="number" id="customAmount" class="form-input" placeholder="Other amount" min="100" style="text-align: center;">
+                            </div>
+                        </div>
+                        <input type="hidden" id="donationAmount" name="amount" required>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="form-label">Payment Method *</label>
+                        <div class="payment-options">
+                            <div class="payment-option" data-method="esewa">
+                                <svg class="payment-icon" viewBox="0 0 24 24">
+                                    <rect x="2" y="6" width="20" height="12" rx="2" fill="#55DC4B"/>
+                                    <path d="M8 10h8v4H8z" fill="white"/>
+                                </svg>
+                                <span>eSewa</span>
+                            </div>
+                            <div class="payment-option" data-method="khalti">
+                                <svg class="payment-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" fill="#5C2D91"/>
+                                    <path d="M12 7l3 5-3 5-3-5z" fill="white"/>
+                                </svg>
+                                <span>Khalti</span>
+                            </div>
+                            <div class="payment-option" data-method="bank">
+                                <svg class="payment-icon" viewBox="0 0 24 24">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" fill="#667eea"/>
+                                    <rect x="6" y="8" width="12" height="2" fill="white"/>
+                                    <rect x="6" y="12" width="8" height="2" fill="white"/>
+                                </svg>
+                                <span>Bank Transfer</span>
+                            </div>
+                            <div class="payment-option" data-method="card">
+                                <svg class="payment-icon" viewBox="0 0 24 24">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" fill="#764ba2"/>
+                                    <rect x="6" y="10" width="12" height="2" fill="white"/>
+                                    <circle cx="18" cy="15" r="2" fill="white"/>
+                                </svg>
+                                <span>Credit/Debit Card</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="paymentMethod" name="paymentMethod" required>
+                    </div>
+                    
+                    <!-- Additional Information -->
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="form-label" for="message">Message (Optional)</label>
+                        <textarea id="message" class="form-textarea" placeholder="Add a personal message or dedication..."></textarea>
+                    </div>
+                    
+                    <!-- Anonymous Donation -->
+                    <div class="form-group">
+                        <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" id="anonymous">
+                            <span>Make this donation anonymous</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Recurring Donation -->
+                    <div class="form-group">
+                        <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" id="recurring">
+                            <span>Make this a monthly recurring donation</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large" style="padding: 1rem 3rem; font-size: 1.2rem;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" style="margin-right: 10px;">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="white"/>
+                            </svg>
+                            Donate Now
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Donation Disclaimer -->
+                <div class="donation-disclaimer">
+                    <h4>💡 About Our Donation Process</h4>
+                    <p>• 100% of your donation goes directly to the cause (0% platform fees)</p>
+                    <p>• You'll receive a digital receipt for tax deduction purposes</p>
+                    <p>• We provide quarterly impact reports showing how funds were used</p>
+                    <p>• All partner organizations are verified and audited regularly</p>
+                    <p>• For bank transfers: NetaKnown Foundation, Account #: 1234567890, Himalayan Bank</p>
+                </div>
+            </div>
+
+            <!-- Impact Stories -->
+            <div class="impact-stories">
+                <div class="section-header" style="color: white;">
+                    <span class="section-badge">Success Stories</span>
+                    <h2 class="section-title">See Your Impact in Action</h2>
+                    <p class="section-subtitle">Real stories of change made possible by donations like yours.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-stats">
+                            <span class="impact-number">50</span>
+                            <span class="impact-label">Children in School</span>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin-bottom: 1rem;">From Street to Classroom</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                                Thanks to your donations, 50 children from Kathmandu's slums are now attending school regularly. 
+                                They receive uniforms, books, and a daily nutritious meal. Priya, 8 years old, now dreams of 
+                                becoming a doctor. "I love going to school," she says with a bright smile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-stats">
+                            <span class="impact-number">30</span>
+                            <span class="impact-label">Elderly Supported</span>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin-bottom: 1rem;">Golden Years with Dignity</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                                Our old age home in Pokhara now provides medical care, social activities, and companionship 
+                                for 30 elderly residents. Ram Bahadur, 78, says, "I have friends here and the care is wonderful. 
+                                I feel like I have a family again."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <div class="section-header" style="color: white;">
+                    <h2 class="section-title">What Donors Say</h2>
+                    <p class="section-subtitle">Hear from people who have made a difference.</p>
+                </div>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "I've been donating monthly for a year now. The transparency reports show exactly where my money goes. 
+                            It feels good to make a real difference."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Anita" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h4>Anita Sharma</h4>
+                                <p>Monthly Donor, Kathmandu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "As an NRI, I wanted to give back to Nepal. NetaKnown made it easy and transparent. 
+                            I can see the schools being built with my contributions."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Raj" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h4>Raj Thapa</h4>
+                                <p>Donor from USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span>NetaKnown</span>
+                    </a>
+                    <p class="footer-description">A citizen-driven platform for tracking political accountability and promoting social welfare in Nepal.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Platform</h3>
+                    <ul>
+                        <li><a href="/statements">Statements</a></li>
+                        <li><a href="/promises">Promises</a></li>
+                        <li><a href="politicians.html">Politicians</a></li>
+                        <li><a href="/methodology">Methodology</a></li>
+                        <li><a href="/data">Data Sources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Donations</h3>
+                    <ul>
+                        <li><a href="donation.html">Donate Now</a></li>
+                        <li><a href="/transparency">Transparency</a></li>
+                        <li><a href="/impact">Impact Reports</a></li>
+                        <li><a href="/partners">Partner Organizations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Organization</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 NetaKnown. All rights reserved. Dedicated to promoting political transparency and social welfare in Nepal.</p>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Submit Button -->
+    <button class="mobile-submit-btn">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+        </svg>
+    </button>
+
+    <script>
+        // Donation Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Amount Selection
+            const amountOptions = document.querySelectorAll('.amount-option');
+            const donationAmountInput = document.getElementById('donationAmount');
+            const customAmountInput = document.getElementById('customAmount');
+            
+            amountOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    amountOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Get amount value
+                    const amount = this.getAttribute('data-amount');
+                    if (amount === 'custom') {
+                        customAmountInput.focus();
+                        donationAmountInput.value = customAmountInput.value || '';
+                    } else {
+                        donationAmountInput.value = amount;
+                        customAmountInput.value = '';
+                    }
+                });
+            });
+            
+            // Custom amount input handling
+            customAmountInput.addEventListener('input', function() {
+                if (this.value) {
+                    donationAmountInput.value = this.value;
+                    amountOptions.forEach(opt => {
+                        if (opt.getAttribute('data-amount') === 'custom') {
+                            opt.classList.add('selected');
+                        } else {
+                            opt.classList.remove('selected');
+                        }
+                    });
+                }
+            });
+            
+            // Payment Method Selection
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            const paymentMethodInput = document.getElementById('paymentMethod');
+            
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    paymentOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Set payment method value
+                    paymentMethodInput.value = this.getAttribute('data-method');
+                });
+            });
+            
+            // Cause Quick Donate Buttons
+            const quickDonateButtons = document.querySelectorAll('.donate-btn');
+            
+            quickDonateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cause = this.getAttribute('data-cause');
+                    const amount = this.getAttribute('data-amount');
+                    
+                    // Set cause in dropdown
+                    document.getElementById('causeSelect').value = cause;
+                    
+                    // Set amount
+                    donationAmountInput.value = amount;
+                    customAmountInput.value = '';
+                    
+                    // Select corresponding amount option
+                    amountOptions.forEach(option => {
+                        if (option.getAttribute('data-amount') === amount) {
+                            option.classList.add('selected');
+                        } else {
+                            option.classList.remove('selected');
+                        }
+                    });
+                    
+                    // Scroll to donation form
+                    document.querySelector('.donation-form-section').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Learn More Buttons
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cause = this.getAttribute('data-cause');
+                    const causeNames = {
+                        'child-welfare': 'Child Welfare',
+                        'old-age-home': 'Old Age Home Support',
+                        'disability-support': 'Disability Support'
+                    };
+                    
+                    alert(`More information about ${causeNames[cause]} will be displayed here. This would typically open a detailed page with photos, stories, and detailed impact reports.`);
+                });
+            });
+            
+            // Form Submission
+            const donationForm = document.getElementById('donationForm');
+            
+            donationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form validation
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const cause = document.getElementById('causeSelect').value;
+                const amount = donationAmountInput.value;
+                const paymentMethod = paymentMethodInput.value;
+                
+                if (!fullName || !email || !cause || !amount || !paymentMethod) {
+                    alert('Please fill all required fields');
+                    return;
+                }
+                
+                if (parseInt(amount) < 100) {
+                    alert('Minimum donation amount is NPR 100');
+                    return;
+                }
+                
+                // Show confirmation dialog
+                const causeNames = {
+                    'child-welfare': 'Child Welfare',
+                    'old-age-home': 'Old Age Home Support',
+                    'disability-support': 'Disability Support',
+                    'healthcare': 'Healthcare Access',
+                    'women-empowerment': 'Women Empowerment',
+                    'disaster-relief': 'Disaster Relief',
+                    'general': 'General Fund'
+                };
+                
+                const paymentNames = {
+                    'esewa': 'eSewa',
+                    'khalti': 'Khalti',
+                    'bank': 'Bank Transfer',
+                    'card': 'Credit/Debit Card'
+                };
+                
+                const isAnonymous = document.getElementById('anonymous').checked;
+                const isRecurring = document.getElementById('recurring').checked;
+                
+                const confirmationMessage = `
+                    Confirm Donation:
+                    
+                    Name: ${isAnonymous ? 'Anonymous' : fullName}
+                    Email: ${email}
+                    Cause: ${causeNames[cause]}
+                    Amount: NPR ${amount}
+                    Payment Method: ${paymentNames[paymentMethod]}
+                    ${isRecurring ? 'Type: Monthly Recurring Donation' : 'Type: One-time Donation'}
+                    
+                    Proceed with payment?
+                `;
+                
+                if (confirm(confirmationMessage)) {
+                    // Simulate payment processing
+                    simulatePaymentProcessing(amount, cause, paymentMethod);
+                }
+            });
+            
+            // Payment Processing Simulation
+            function simulatePaymentProcessing(amount, cause, paymentMethod) {
+                // Show loading state
+                const submitBtn = donationForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span>Processing Payment...</span>';
+                submitBtn.disabled = true;
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Show success message
+                    alert(`🎉 Thank you for your donation of NPR ${amount} to ${cause}!\n\nYou will receive a confirmation email with your donation receipt shortly.`);
+                    
+                    // Reset form
+                    donationForm.reset();
+                    amountOptions.forEach(opt => opt.classList.remove('selected'));
+                    paymentOptions.forEach(opt => opt.classList.remove('selected'));
+                    donationAmountInput.value = '';
+                    paymentMethodInput.value = '';
+                    customAmountInput.value = '';
+                    
+                    // Restore button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show thank you message
+                    showThankYouMessage(amount, cause);
+                    
+                }, 2000);
+            }
+            
+            function showThankYouMessage(amount, cause) {
+                const thankYouMessage = document.createElement('div');
+                thankYouMessage.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    z-index: 1000;
+                    max-width: 400px;
+                    animation: slideIn 0.5s ease;
+                `;
+                
+                thankYouMessage.innerHTML = `
+                    <h3 style="margin: 0 0 10px 0; font-family: 'Playfair Display', serif;">Thank You! 🙏</h3>
+                    <p style="margin: 0; opacity: 0.9;">
+                        Your donation of NPR ${amount} will make a real difference. 
+                        We'll send you updates on how your contribution is helping.
+                    </p>
+                `;
+                
+                document.body.appendChild(thankYouMessage);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    thankYouMessage.style.animation = 'slideOut 0.5s ease';
+                    setTimeout(() => thankYouMessage.remove(), 500);
+                }, 5000);
+                
+                // Add animation styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Political Accountability in Nepal | NetaKnown</title>
+    <meta name="description" content="NetaKnown helps citizens track political statements, promises, and accountability of Nepali politicians. Promoting transparency in Nepali politics.">
+    <meta name="keywords" content="Nepal politics, political accountability, Nepali politicians, fact-checking, political promises">
+    <meta name="author" content="NetaKnown">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.netaknown.com/">
+    <meta property="og:title" content="NetaKnown - Political Accountability Platform">
+    <meta property="og:description" content="Track and verify political statements and promises in Nepal. Find truth scores, promise fulfillment rates, and fact-checked information about Nepali politicians.">
+    <meta property="og:image" content="https://www.netaknown.com/social-preview.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="NetaKnown">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@netaknown">
+    <meta name="twitter:title" content="NetaKnown - Promoting Political Accountability">
+    <meta name="twitter:description" content="Fact-check Nepali politicians, track promise fulfillment, and make informed decisions with verified political information.">
+    <meta name="twitter:image" content="https://www.netaknown.com/social-preview.jpg">
+    
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://www.netaknown.com/">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External JS (deferred) -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="NetaKnown Logo">
+                <span>NetaKnown</span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="politicians.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Politicians</span>
+                </a>
+                <a href="donation.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12" y2="8"/>
+                    </svg>
+                    <span>Donation</span>
+                </a>
+                <a href="/about" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12" y2="8"/>
+                    </svg>
+                    <span>About</span>
+                </a>
+                <a href="/contact" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <polyline points="22,7 12,14 2,7"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+            
+           <div class="nav-actions">
+    <!-- Login Container -->
+    <div class="login-container">
+        <a href="javascript:void(0)" class="btn btn-login" title="Login">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10 17 15 12 10 7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+            </svg>
+            <span>Login</span>
+        </a>
+        
+        <!-- Login Form Dropdown -->
+        <div class="login-form">
+            <div class="login-header">
+                <h3>Welcome to NetaKnown</h3>
+                <p>Login to track politicians and submit evidence</p>
+            </div>
+            
+            <!-- Google Login Button -->
+            <a href="javascript:void(0)" class="google-login-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                <span>Continue with Google</span>
+            </a>
+            
+            <div class="divider">
+                <span>or</span>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form-content">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="javascript:void(0)" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-login-submit">
+                    <span>Login</span>
+                </button>
+                
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="javascript:void(0)" id="signupLink">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Track Political Accountability in Nepal.</h1>
+                <p class="hero-subtitle">Monitor statements, verify promises, and hold politicians accountable with transparent data.</p>
+                
+                <!-- Updated Search Form -->
+                <div class="search-container">
+                    <form class="search-form" id="mainSearchForm">
+                        <div class="search-wrapper">
+                            <input type="text" 
+                                   id="mainSearchInput"
+                                   class="search-input"
+                                   placeholder="Search politicians (e.g., Balen Shah, KP Oli, Gagan Thapa)..."
+                                   autocomplete="off">
+                            
+                        </div>
+                        <button type="submit" class="search-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                </svg>
+                            </button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </form>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="/explore" class="btn btn-primary btn-large">Explore Data</a>
+                    <a href="/submit" class="btn btn-secondary btn-large">Submit Evidence</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Section (initially hidden) -->
+    <section class="search-results-section" id="searchResultsSection" style="display: none;">
+        <div class="container">
+            <div class="search-results-header">
+                <h2>Search Results</h2>
+                <button class="btn btn-outline" id="clearSearchBtn">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                    Clear Search
+                </button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">What You Can Do</span>
+                <h2 class="section-title">Engage with Political Transparency</h2>
+                <p class="section-subtitle">Our platform provides tools to explore, verify, and contribute to political accountability in Nepal.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3>Verify Statements</h3>
+                    <p>Fact-check political statements and claims made in media and public forums.</p>
+                    <a href="#" class="feature-link">Start Verifying →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3>Track Promises</h3>
+                    <p>Monitor whether politicians are fulfilling their campaign pledges and commitments.</p>
+                    <a href="#" class="feature-link">Track Now →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Analyze Profiles</h3>
+                    <p>Review comprehensive profiles and performance records of elected officials.</p>
+                    <a href="politicians.html" class="feature-link">View Profiles →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Contribute Data</h3>
+                    <p>Submit evidence, join discussions, and help build a transparent political ecosystem.</p>
+                    <a href="#" class="feature-link">Join Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Politicians Section -->
+    <section class="politicians-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Politicians</h2>
+                <p class="section-subtitle">Track accountability scores and performance metrics of key political figures.</p>
+            </div>
+            
+           <!-- In the politicians-grid section, update the links like this: -->
+<div class="politicians-grid">
+     <!-- Balen Shah Card -->
+    <div class="politician-card" data-politician="balen-shah">
+        <div class="politician-image">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.1HrEGkdb6PVc41HZixBpAwHaHy?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Balen Shah">
+        </div>
+        <h3 class="politician-name">Balen Shah</h3>
+        <p class="politician-party">Independent</p>
+        
+        <div class="politician-metrics">
+            <div class="metric">
+                <span class="metric-label">Truth Score</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 65%"></div>
+                </div>
+                <span class="metric-value">65%</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Promise Fulfillment</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 58%"></div>
+                </div>
+                <span class="metric-value">58%</span>
+            </div>
+        </div>
+        
+        <a href="politician-profile.html?name=balen-shah" class="politician-link">View Profile →</a>
+    </div>
+    <!-- Pushpa Kamal Dahal Card -->
+    <div class="politician-card" data-politician="pushpa-kamal-dahal">
+        <div class="politician-image">
+            <img src="assets/image.png" alt="Pushpa Kamal Dahal">
+        </div>
+        <h3 class="politician-name">Pushpa Kamal Dahal</h3>
+        <p class="politician-party">CPN (Maoist Centre)</p>
+        
+        <div class="politician-metrics">
+            <div class="metric">
+                <span class="metric-label">Truth Score</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 45%"></div>
+                </div>
+                <span class="metric-value">45%</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Promise Fulfillment</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 30%"></div>
+                </div>
+                <span class="metric-value">30%</span>
+            </div>
+        </div>
+        
+        <a href="politician-profile.html?name=pushpa-kamal-dahal" class="politician-link">View Profile →</a>
+    </div>
+    
+    <!-- KP Oli Card -->
+    <div class="politician-card" data-politician="kp-oli">
+        <div class="politician-image">
+            <img src="https://th.bing.com/th/id/R.cc57b72a3ac5c3f62ed672c6fc4bd990?rik=IzPpLpH5v4kTcw&pid=ImgRaw&r=0" alt="KP Sharma Oli">
+        </div>
+        <h3 class="politician-name">KP Sharma Oli</h3>
+        <p class="politician-party">CPN (UML)</p>
+        
+        <div class="politician-metrics">
+            <div class="metric">
+                <span class="metric-label">Truth Score</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 38%"></div>
+                </div>
+                <span class="metric-value">38%</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Promise Fulfillment</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 42%"></div>
+                </div>
+                <span class="metric-value">42%</span>
+            </div>
+        </div>
+        
+        <a href="politician-profile.html?name=kp-oli" class="politician-link">View Profile →</a>
+    </div>
+    
+    <!-- Sher Bahadur Deuba Card -->
+    <div class="politician-card" data-politician="sher-bahadur-deuba">
+        <div class="politician-image">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.uawTYI1NfJE5hBchnIviUgHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sher Bahadur Deuba">
+        </div>
+        <h3 class="politician-name">Sher Bahadur Deuba</h3>
+        <p class="politician-party">Nepali Congress</p>
+        
+        <div class="politician-metrics">
+            <div class="metric">
+                <span class="metric-label">Truth Score</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 52%"></div>
+                </div>
+                <span class="metric-value">52%</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Promise Fulfillment</span>
+                <div class="metric-bar">
+                    <div class="metric-fill" style="width: 48%"></div>
+                </div>
+                <span class="metric-value">48%</span>
+            </div>
+        </div>
+        
+        <a href="politician-profile.html?name=sher-bahadur-deuba" class="politician-link">View Profile →</a>
+    </div>
+    
+   
+</div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Join the Movement for Political Transparency</h2>
+                <p class="cta-text">Be part of a growing community of citizens who believe in holding politicians accountable. Together, we can build a more transparent democracy.</p>
+                
+                <div class="cta-actions">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-large">Join NetaKnown</a>
+                    <a href="/about" class="btn btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span>NetaKnown</span>
+                    </a>
+                    <p class="footer-description">A citizen-driven platform for tracking political accountability and transparency in Nepal.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/niraj.thapa.56211" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/niraj__xetri/" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Platform</h3>
+                    <ul>
+                        <li><a href="/statements">Statements</a></li>
+                        <li><a href="/promises">Promises</a></li>
+                        <li><a href="politicians.html">Politicians</a></li>
+                        <li><a href="/methodology">Methodology</a></li>
+                        <li><a href="/data">Data Sources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Contribute</h3>
+                    <ul>
+                        <li><a href="donation.html">Donate</a></li>
+                        <li><a href="#">Submit Evidence</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Organization</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 NetaKnown. All rights reserved. Dedicated to promoting political transparency in Nepal.</p>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Submit Button -->
+    <button class="mobile-submit-btn">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+        </svg>
+    </button>
+</body>
+</html>

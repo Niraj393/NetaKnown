@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politician Profile | NetaKnown</title>
+    <meta name="description" content="Detailed profile of Nepali politician with accountability metrics, promises, and career timeline.">
+    <meta name="keywords" content="Nepal politics, politician profile, political accountability, Nepali politicians">
+    <meta name="author" content="NetaKnown">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Politician Profile - NetaKnown">
+    <meta property="og:description" content="Detailed profile with truth scores, promise fulfillment rates, and political career information.">
+    <meta property="og:image" content="https://www.netaknown.com/social-preview.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="NetaKnown">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@netaknown">
+    <meta name="twitter:title" content="Politician Profile - NetaKnown">
+    <meta name="twitter:description" content="Track political accountability with detailed profiles and metrics.">
+    <meta name="twitter:image" content="https://www.netaknown.com/social-preview.jpg">
+    
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://www.netaknown.com/politician-profile.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External JS (deferred) -->
+    <script src="script.js" defer></script>
+    
+    <style>
+        /* Profile Page Specific Styles */
+        .profile-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .profile-header {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .profile-image {
+            flex: 0 0 300px;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .profile-header-info {
+            flex: 1;
+        }
+        
+        .profile-header-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-party-position {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .profile-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .metric {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .metric-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        
+        .metric-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .profile-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .detail-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .detail-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            color: #667eea;
+        }
+        
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-list strong {
+            color: #4a5568;
+            font-weight: 600;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .timeline li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .timeline-event {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+        
+        .statements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .statement-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .statement-item:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .statement-text {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .statement-date {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+        
+        .statement-status {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .in-progress {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .partially-fulfilled {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .not-fulfilled {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            color: #667eea;
+        }
+        
+        .loading-message, .error {
+            text-align: center;
+            padding: 4rem;
+            font-size: 1.2rem;
+            color: #4a5568;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .error {
+            color: #e53e3e;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #f7fafc;
+            transform: translateX(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .profile-header {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .profile-image {
+                flex: 0 0 auto;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .profile-header-info h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            
+            .profile-party-position {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                padding: 2rem 0;
+            }
+            
+            .profile-header {
+                padding: 2rem;
+            }
+            
+            .profile-header-info h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-header {
+                padding: 1.5rem;
+            }
+            
+            .profile-image {
+                max-width: 250px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="NetaKnown Logo">
+                <span>NetaKnown</span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="politicians.html" class="nav-link active">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Politicians</span>
+                </a>
+                  <a href="donation.html" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12" y2="8"/>
+                    </svg>
+                    <span>Donation</span>
+                </a>
+                <a href="/about" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12" y2="8"/>
+                    </svg>
+                    <span>About</span>
+                </a>
+                <a href="/contact" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <polyline points="22,7 12,14 2,7"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-login">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                        <polyline points="10 17 15 12 10 7"/>
+                        <line x1="15" y1="12" x2="3" y2="12"/>
+                    </svg>
+                    <span>Login</span>
+                
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container profile-container">
+            <a href="index.html" class="back-button">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+                Back to Home
+            </a>
+            
+            <div id="profile-content">
+                <!-- Content will be loaded here by JavaScript -->
+                <div class="loading-message">
+                    <p>Loading politician profile...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span>NetaKnown</span>
+                    </a>
+                    <p class="footer-description">A citizen-driven platform for tracking political accountability and transparency in Nepal.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Platform</h3>
+                    <ul>
+                        <li><a href="/statements">Statements</a></li>
+                        <li><a href="/promises">Promises</a></li>
+                        <li><a href="politicians.html">Politicians</a></li>
+                        <li><a href="/methodology">Methodology</a></li>
+                        <li><a href="/data">Data Sources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Contribute</h3>
+                    <ul>
+                        <li><a href="/submit">Submit Evidence</a></li>
+                        <li><a href="/volunteer">Volunteer</a></li>
+                        <li><a href="/donate">Donate</a></li>
+                        <li><a href="/partners">Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Organization</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 NetaKnown. All rights reserved. Dedicated to promoting political transparency in Nepal.</p>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Submit Button -->
+    <button class="mobile-submit-btn">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+        </svg>
+    </button>
+
+    <script>
+    // Function to get URL parameter
+    function getPoliticianIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('name');
+    }
+
+    // Embedded JSON data (copy from your data-politician.json)
+    const politiciansData = {
+        "politicians": [
+      {
+            "id": "shushila-karki",
+            "name": "Shushila Karki",
+            "party": "Independent",
+            "currentPosition": "Interim Prime Minister of Nepal",
+            "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.HJghaifeoaJriVXlkBxsVgHaEK?cb=ucfimg2&ucfimg=1&w=1280&h=720&rs=1&pid=ImgDetMain&o=7&rm=3",
+            "dob": "June 7, 1952",
+            "birthPlace": "Biratnagar, Nepal[citation:1][citation:3]",
+            "education": "Bachelor of Arts (Tribhuvan University), M.A. Political Science (Banaras Hindu University), Bachelor of Laws (Tribhuvan University)[citation:1][citation:3]",
+            "politicalCareerStart": "2025 (Appointed as Interim Prime Minister)",
+            "politicalStatus": "Active - Interim Prime Minister[citation:1]",
+            "careerTimeline": [
+                { "year": "2009", "event": "Appointed as an ad hoc Justice of the Supreme Court[citation:1]" },
+                { "year": "2010", "event": "Appointed as a permanent Justice of the Supreme Court[citation:1]" },
+                { "year": "2016", "event": "Appointed as the first female Chief Justice of Nepal[citation:1]" },
+                { "year": "2017", "event": "Faced impeachment proceedings; retired as Chief Justice[citation:1][citation:7]" },
+                { "year": "2018", "event": "Published autobiography 'Nyaya' (Justice)[citation:3]" },
+                { "year": "2025", "event": "Appointed as the first female Interim Prime Minister of Nepal following Gen Z protests[citation:1][citation:10]" }
+            ],
+            "keyStatements": [
+                { "statement": "Pledged to conduct free and fair general elections within six months and hand over power", "status": "In Progress", "date": "2025" },
+                { "statement": "Vowed to end corruption and bring good governance", "status": "In Progress", "date": "2025" },
+                { "statement": "Promised compensation and support for families of protest victims", "status": "Partially Fulfilled", "date": "2025" },
+                { "statement": "Announced the creation of a Reconstruction Fund for damaged infrastructure", "status": "In Progress", "date": "2025" }
+            ],
+            "truthScore": 70,
+            "promiseFulfillment": 40,
+            "contactInfo": {
+                "constituency": "N/A (Appointed Interim Prime Minister)",
+                "socialMedia": {
+                "twitter": "N/A",
+                "facebook": "N/A"
+                }
+            }
+        }
+  
+        ,{
+                "id": "pushpa-kamal-dahal",
+                "name": "Pushpa Kamal Dahal",
+                "party": "CPN (Maoist Centre)",
+                "currentPosition": "Prime Minister of Nepal",
+                "imageUrl": "assets/image.png",
+                "dob": "December 11, 1954",
+                "birthPlace": "Dhikurpokhari, Kaski, Nepal",
+                "education": "Intermediate in Arts (IA)",
+                "politicalCareerStart": "Early 1960s",
+                "politicalStatus": "Active - Current Prime Minister",
+                "careerTimeline": [
+                    { "year": "1996", "event": "Initiated the Maoist insurgency (People's War)" },
+                    { "year": "2006", "event": "Signed the Comprehensive Peace Accord, ending civil war" },
+                    { "year": "2008", "event": "First term as Prime Minister (August 2008 - May 2009)" },
+                    { "year": "2016", "event": "Second term as Prime Minister (August 2016 - June 2017)" },
+                    { "year": "2022", "event": "Third term as Prime Minister (December 2022 - present)" }
+                ],
+                "keyStatements": [
+                    { "statement": "Promised to complete the peace process and deliver a new constitution", "status": "Partially Fulfilled", "date": "2022" },
+                    { "statement": "Vowed to control inflation and boost economic growth to 10%", "status": "Not Fulfilled", "date": "2023" },
+                    { "statement": "Committed to ending political instability in Nepal", "status": "In Progress", "date": "2022" }
+                ],
+                "truthScore": 45,
+                "promiseFulfillment": 30,
+                "contactInfo": {
+                    "constituency": "Kathmandu-10",
+                    "socialMedia": {
+                        "twitter": "@cmprachanda",
+                        "facebook": "cmprachanda"
+                    }
+                }
+            },
+            {
+                "id": "kp-oli",
+                "name": "KP Sharma Oli",
+                "party": "CPN (UML)",
+                "currentPosition": "Former Prime Minister, Chair of CPN (UML)",
+                "imageUrl": "https://th.bing.com/th/id/R.cc57b72a3ac5c3f62ed672c6fc4bd990?rik=IzPpLpH5v4kTcw&pid=ImgRaw&r=0",
+                "dob": "February 22, 1952",
+                "birthPlace": "Terhathum District, Nepal",
+                "education": "Bachelor of Laws (LL.B.), Diploma in Arts",
+                "politicalCareerStart": "1970",
+                "politicalStatus": "Active - Chair of CPN (UML)",
+                "careerTimeline": [
+                    { "year": "1994", "event": "First elected as Member of Parliament" },
+                    { "year": "2015", "event": "Prime Minister after the 2015 Nepal earthquake" },
+                    { "year": "2018", "event": "Prime Minister following 2017 elections" },
+                    { "year": "2021", "event": "Lost vote of confidence, stepped down as PM" }
+                ],
+                "keyStatements": [
+                    { "statement": "Promised 'Prosperous Nepal, Happy Nepali' as national vision", "status": "In Progress", "date": "2018" },
+                    { "statement": "Pledged to bring electricity to every household", "status": "Partially Fulfilled", "date": "2018" },
+                    { "statement": "Committed to constructing railway network across Nepal", "status": "Not Fulfilled", "date": "2019" }
+                ],
+                "truthScore": 38,
+                "promiseFulfillment": 42,
+                "contactInfo": {
+                    "constituency": "Jhapa-5",
+                    "socialMedia": {
+                        "twitter": "@kpsharmaoli",
+                        "facebook": "kpsharmaoli.official"
+                    }
+                }
+            },
+            {
+                "id": "sher-bahadur-deuba",
+                "name": "Sher Bahadur Deuba",
+                "party": "Nepali Congress",
+                "currentPosition": "Former Prime Minister, Senior Leader of Nepali Congress",
+                "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.uawTYI1NfJE5hBchnIviUgHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+                "dob": "June 13, 1946",
+                "birthPlace": "Ashigram, Dadeldhura, Nepal",
+                "education": "Tribhuvan University (M.A. in Political Science)",
+                "politicalCareerStart": "1968",
+                "politicalStatus": "Active - Senior Leader",
+                "careerTimeline": [
+                    { "year": "1991", "event": "First elected to Parliament" },
+                    { "year": "1995", "event": "First term as Prime Minister" },
+                    { "year": "2001", "event": "Second term as Prime Minister" },
+                    { "year": "2004", "event": "Third term as Prime Minister" },
+                    { "year": "2017", "event": "Fourth term as Prime Minister" },
+                    { "year": "2021", "event": "Fifth term as Prime Minister" }
+                ],
+                "keyStatements": [
+                    { "statement": "Promised to strengthen federalism and local governance", "status": "Partially Fulfilled", "date": "2021" },
+                    { "statement": "Committed to economic recovery post-COVID", "status": "In Progress", "date": "2021" },
+                    { "statement": "Vowed to ensure social justice and equality", "status": "Not Fulfilled", "date": "2017" }
+                ],
+                "truthScore": 52,
+                "promiseFulfillment": 48,
+                "contactInfo": {
+                    "constituency": "Dadeldhura-1",
+                    "socialMedia": {
+                        "twitter": "@DeubaSherB",
+                        "facebook": "sherbahadur.deuba"
+                    }
+                }
+            },
+            {
+                "id": "balen-shah",
+                "name": "Balen Shah",
+                "party": "Independent",
+                "currentPosition": "Mayor of Kathmandu Metropolitan City",
+                "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.1HrEGkdb6PVc41HZixBpAwHaHy?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+                "dob": "September 27, 1990",
+                "birthPlace": "Kathmandu, Nepal",
+                "education": "MBBS (Medical Doctor), Rapper and Music Producer",
+                "politicalCareerStart": "2022",
+                "politicalStatus": "Active - Mayor of Kathmandu",
+                "careerTimeline": [
+                    { "year": "2022", "event": "Elected as Mayor of Kathmandu as independent candidate" }
+                ],
+                "keyStatements": [
+                    { "statement": "Pledged to make Kathmandu clean and green within 2 years", "status": "In Progress", "date": "2022" },
+                    { "statement": "Promised to digitize municipal services and reduce corruption", "status": "Partially Fulfilled", "date": "2022" },
+                    { "statement": "Committed to improving waste management system", "status": "In Progress", "date": "2023" }
+                ],
+                "truthScore": 65,
+                "promiseFulfillment": 58,
+                "contactInfo": {
+                    "constituency": "Kathmandu Metropolitan City",
+                    "socialMedia": {
+                        "twitter": "@BalenShah",
+                        "facebook": "balen.shah.official"
+                    }
+                }
+            },
+            {
+                "id": "gagan-thapa",
+                "name": "Gagan Kumar Thapa",
+                "party": "Nepali Congress",
+                "currentPosition": "General Minister of Health and Population",
+                "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.4UJFKDOlEC3A0gFy33fD8AHaE7?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+                "dob": "November 23, 1976",
+                "birthPlace": "Kathmandu, Nepal",
+                "education": "M.Sc. in Environmental Science, B.Sc. in Biology",
+                "politicalCareerStart": "1999",
+                "politicalStatus": "Active - Health Minister",
+                "careerTimeline": [
+                    { "year": "2008", "event": "Elected to Constituent Assembly" },
+                    { "year": "2013", "event": "Re-elected to Constituent Assembly" },
+                    { "year": "2016", "event": "Elected General Secretary of Nepali Congress" },
+                    { "year": "2017", "event": "Elected to House of Representatives" },
+                    { "year": "2021", "event": "Appointed Health Minister" }
+                ],
+                "keyStatements": [
+                    { "statement": "Promised to reform healthcare system for universal coverage", "status": "In Progress", "date": "2021" },
+                    { "statement": "Committed to improving mental health services", "status": "Partially Fulfilled", "date": "2022" },
+                    { "statement": "Vowed to reduce out-of-pocket healthcare expenses", "status": "In Progress", "date": "2023" }
+                ],
+                "truthScore": 68,
+                "promiseFulfillment": 52,
+                "contactInfo": {
+                    "constituency": "Kathmandu-4",
+                    "socialMedia": {
+                        "twitter": "@gaganthapanc",
+                        "facebook": "gaganthapa.nepal"
+                    }
+                }
+            }
+        ]
+    };
+
+    // Function to load and display politician profile
+    function loadPoliticianProfile() {
+        const politicianId = getPoliticianIdFromUrl();
+        const profileContainer = document.getElementById('profile-content');
+
+        if (!politicianId) {
+            profileContainer.innerHTML = '<p class="error">Politician not specified. Please select a politician from the list.</p>';
+            return;
+        }
+
+        try {
+            const politician = politiciansData.politicians.find(p => p.id === politicianId);
+
+            if (!politician) {
+                profileContainer.innerHTML = `
+                    <div class="error">
+                        <p>Politician not found in our database.</p>
+                        <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">Back to Home</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Generate the HTML for the profile
+            profileContainer.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="${politician.imageUrl}" alt="${politician.name}" onerror="this.src='https://via.placeholder.com/300x400?text=Politician+Image'">
+                    </div>
+                    <div class="profile-header-info">
+                        <h1>${politician.name}</h1>
+                        <p class="profile-party-position">${politician.currentPosition} | ${politician.party}</p>
+                        
+                        <div class="profile-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Truth Score</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: ${politician.truthScore}%"></div>
+                                </div>
+                                <span class="metric-value">${politician.truthScore}%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Promise Fulfillment</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: ${politician.promiseFulfillment}%"></div>
+                                </div>
+                                <span class="metric-value">${politician.promiseFulfillment}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-details-grid">
+                    <div class="detail-card">
+                        <h3>
+                            <svg class="detail-icon" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Biographical Information
+                        </h3>
+                        <ul class="detail-list">
+                            <li><strong>Date of Birth:</strong> ${politician.dob}</li>
+                            <li><strong>Place of Birth:</strong> ${politician.birthPlace}</li>
+                            <li><strong>Education:</strong> ${politician.education}</li>
+                            <li><strong>Political Career Start:</strong> ${politician.politicalCareerStart}</li>
+                            <li><strong>Current Status:</strong> ${politician.politicalStatus}</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>
+                            <svg class="detail-icon" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Career Timeline
+                        </h3>
+                        <ul class="timeline">
+                            ${politician.careerTimeline.map(item => `
+                                <li>
+                                    <span class="timeline-year">${item.year}</span>
+                                    <span class="timeline-event">${item.event}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>
+                            <svg class="detail-icon" viewBox="0 0 24 24">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Contact & Representation
+                        </h3>
+                        <ul class="detail-list">
+                            <li><strong>Constituency:</strong> ${politician.contactInfo.constituency}</li>
+                            <li><strong>Twitter:</strong> ${politician.contactInfo.socialMedia.twitter}</li>
+                            <li><strong>Facebook:</strong> ${politician.contactInfo.socialMedia.facebook}</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card" style="grid-column: span 2;">
+                        <h3>
+                            <svg class="detail-icon" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Tracked Statements & Promises
+                        </h3>
+                        <div class="statements-list">
+                            ${politician.keyStatements.map(st => `
+                                <div class="statement-item">
+                                    <p class="statement-text">"${st.statement}"</p>
+                                    <p class="statement-date">Statement made in ${st.date}</p>
+                                    <span class="statement-status ${st.status.toLowerCase().replace(' ', '-')}">${st.status}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Update page title
+            document.title = `${politician.name} - NetaKnown`;
+            
+        } catch (error) {
+            console.error('Error loading politician data:', error);
+            profileContainer.innerHTML = `
+                <div class="error">
+                    <p>Error loading profile: ${error.message}</p>
+                    <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">Back to Home</a>
+                </div>
+            `;
+        }
+    }
+
+    // Load the profile when the page opens
+    document.addEventListener('DOMContentLoaded', loadPoliticianProfile);
+</script>
+</body>
+</html>

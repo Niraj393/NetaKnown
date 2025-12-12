@@ -1,0 +1,165 @@
+{
+  "politicians": [
+    {
+      "id": "pushpa-kamal-dahal",
+      "name": "Pushpa Kamal Dahal",
+      "party": "CPN (Maoist Centre)",
+      "currentPosition": "Prime Minister of Nepal",
+      "imageUrl": "assets/image.png",
+      "dob": "December 11, 1954",
+      "birthPlace": "Dhikurpokhari, Kaski, Nepal",
+      "education": "Intermediate in Arts (IA)",
+      "politicalCareerStart": "Early 1960s",
+      "politicalStatus": "Active - Current Prime Minister",
+      "careerTimeline": [
+        { "year": "1996", "event": "Initiated the Maoist insurgency (People's War)" },
+        { "year": "2006", "event": "Signed the Comprehensive Peace Accord, ending civil war" },
+        { "year": "2008", "event": "First term as Prime Minister (August 2008 - May 2009)" },
+        { "year": "2016", "event": "Second term as Prime Minister (August 2016 - June 2017)" },
+        { "year": "2022", "event": "Third term as Prime Minister (December 2022 - present)" }
+      ],
+      "keyStatements": [
+        { "statement": "Promised to complete the peace process and deliver a new constitution", "status": "Partially Fulfilled", "date": "2022" },
+        { "statement": "Vowed to control inflation and boost economic growth to 10%", "status": "Not Fulfilled", "date": "2023" },
+        { "statement": "Committed to ending political instability in Nepal", "status": "In Progress", "date": "2022" }
+      ],
+      "truthScore": 45,
+      "promiseFulfillment": 30,
+      "contactInfo": {
+        "constituency": "Kathmandu-10",
+        "socialMedia": {
+          "twitter": "@cmprachanda",
+          "facebook": "cmprachanda"
+        }
+      }
+    },
+    {
+      "id": "kp-oli",
+      "name": "KP Sharma Oli",
+      "party": "CPN (UML)",
+      "currentPosition": "Former Prime Minister, Chair of CPN (UML)",
+      "imageUrl": "https://th.bing.com/th/id/R.cc57b72a3ac5c3f62ed672c6fc4bd990?rik=IzPpLpH5v4kTcw&pid=ImgRaw&r=0",
+      "dob": "February 22, 1952",
+      "birthPlace": "Terhathum District, Nepal",
+      "education": "Bachelor of Laws (LL.B.), Diploma in Arts",
+      "politicalCareerStart": "1970",
+      "politicalStatus": "Active - Chair of CPN (UML)",
+      "careerTimeline": [
+        { "year": "1994", "event": "First elected as Member of Parliament" },
+        { "year": "2015", "event": "Prime Minister after the 2015 Nepal earthquake" },
+        { "year": "2018", "event": "Prime Minister following 2017 elections" },
+        { "year": "2021", "event": "Lost vote of confidence, stepped down as PM" }
+      ],
+      "keyStatements": [
+        { "statement": "Promised 'Prosperous Nepal, Happy Nepali' as national vision", "status": "In Progress", "date": "2018" },
+        { "statement": "Pledged to bring electricity to every household", "status": "Partially Fulfilled", "date": "2018" },
+        { "statement": "Committed to constructing railway network across Nepal", "status": "Not Fulfilled", "date": "2019" }
+      ],
+      "truthScore": 38,
+      "promiseFulfillment": 42,
+      "contactInfo": {
+        "constituency": "Jhapa-5",
+        "socialMedia": {
+          "twitter": "@kpsharmaoli",
+          "facebook": "kpsharmaoli.official"
+        }
+      }
+    },
+    {
+      "id": "sher-bahadur-deuba",
+      "name": "Sher Bahadur Deuba",
+      "party": "Nepali Congress",
+      "currentPosition": "Former Prime Minister, Senior Leader of Nepali Congress",
+      "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.uawTYI1NfJE5hBchnIviUgHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "dob": "June 13, 1946",
+      "birthPlace": "Ashigram, Dadeldhura, Nepal",
+      "education": "Tribhuvan University (M.A. in Political Science)",
+      "politicalCareerStart": "1968",
+      "politicalStatus": "Active - Senior Leader",
+      "careerTimeline": [
+        { "year": "1991", "event": "First elected to Parliament" },
+        { "year": "1995", "event": "First term as Prime Minister" },
+        { "year": "2001", "event": "Second term as Prime Minister" },
+        { "year": "2004", "event": "Third term as Prime Minister" },
+        { "year": "2017", "event": "Fourth term as Prime Minister" },
+        { "year": "2021", "event": "Fifth term as Prime Minister" }
+      ],
+      "keyStatements": [
+        { "statement": "Promised to strengthen federalism and local governance", "status": "Partially Fulfilled", "date": "2021" },
+        { "statement": "Committed to economic recovery post-COVID", "status": "In Progress", "date": "2021" },
+        { "statement": "Vowed to ensure social justice and equality", "status": "Not Fulfilled", "date": "2017" }
+      ],
+      "truthScore": 52,
+      "promiseFulfillment": 48,
+      "contactInfo": {
+        "constituency": "Dadeldhura-1",
+        "socialMedia": {
+          "twitter": "@DeubaSherB",
+          "facebook": "sherbahadur.deuba"
+        }
+      }
+    },
+    {
+      "id": "balen-shah",
+      "name": "Balen Shah",
+      "party": "Independent",
+      "currentPosition": "Mayor of Kathmandu Metropolitan City",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.1HrEGkdb6PVc41HZixBpAwHaHy?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "dob": "September 27, 1990",
+      "birthPlace": "Kathmandu, Nepal",
+      "education": "MBBS (Medical Doctor), Rapper and Music Producer",
+      "politicalCareerStart": "2022",
+      "politicalStatus": "Active - Mayor of Kathmandu",
+      "careerTimeline": [
+        { "year": "2022", "event": "Elected as Mayor of Kathmandu as independent candidate" }
+      ],
+      "keyStatements": [
+        { "statement": "Pledged to make Kathmandu clean and green within 2 years", "status": "In Progress", "date": "2022" },
+        { "statement": "Promised to digitize municipal services and reduce corruption", "status": "Partially Fulfilled", "date": "2022" },
+        { "statement": "Committed to improving waste management system", "status": "In Progress", "date": "2023" }
+      ],
+      "truthScore": 65,
+      "promiseFulfillment": 58,
+      "contactInfo": {
+        "constituency": "Kathmandu Metropolitan City",
+        "socialMedia": {
+          "twitter": "@BalenShah",
+          "facebook": "balen.shah.official"
+        }
+      }
+    },
+    {
+      "id": "gagan-thapa",
+      "name": "Gagan Kumar Thapa",
+      "party": "Nepali Congress",
+      "currentPosition": "General Minister of Health and Population",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.4UJFKDOlEC3A0gFy33fD8AHaE7?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "dob": "November 23, 1976",
+      "birthPlace": "Kathmandu, Nepal",
+      "education": "M.Sc. in Environmental Science, B.Sc. in Biology",
+      "politicalCareerStart": "1999",
+      "politicalStatus": "Active - Health Minister",
+      "careerTimeline": [
+        { "year": "2008", "event": "Elected to Constituent Assembly" },
+        { "year": "2013", "event": "Re-elected to Constituent Assembly" },
+        { "year": "2016", "event": "Elected General Secretary of Nepali Congress" },
+        { "year": "2017", "event": "Elected to House of Representatives" },
+        { "year": "2021", "event": "Appointed Health Minister" }
+      ],
+      "keyStatements": [
+        { "statement": "Promised to reform healthcare system for universal coverage", "status": "In Progress", "date": "2021" },
+        { "statement": "Committed to improving mental health services", "status": "Partially Fulfilled", "date": "2022" },
+        { "statement": "Vowed to reduce out-of-pocket healthcare expenses", "status": "In Progress", "date": "2023" }
+      ],
+      "truthScore": 68,
+      "promiseFulfillment": 52,
+      "contactInfo": {
+        "constituency": "Kathmandu-4",
+        "socialMedia": {
+          "twitter": "@gaganthapanc",
+          "facebook": "gaganthapa.nepal"
+        }
+      }
+    }
+  ]
+}
